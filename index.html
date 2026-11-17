@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gergócs Tamás – Portfólió</title>
+<meta name="description" content="Gergócs Tamás – UX és service designer komplex, szabályozott és több szereplős szolgáltatásokra. UX & service designer for complex, regulated, multi-actor services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: Miro-szerű pontrácsos vászon; keretek (frame) fehér kártyákkal, kiemelés post-itekkel, harmadlagos tartalom vonalas lapon */
+  --ink: #071e25;
+  --canvas: #f7f8f6;
+  --surface: #ffffff;
+  --sticky: #d4ecf6;
+  --line: rgba(7, 30, 37, 0.14);
+  --accent: #1d7f55;
+  --marker: #f4a28c;
+  --lemon: #fff3b0;
+  --font-display: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Lato", "Segoe UI", system-ui, sans-serif;
+  --rule: 28px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--canvas);
+  background-image: radial-gradient(rgba(7, 30, 37, 0.16) 1.1px, transparent 1.3px);
+  background-size: 24px 24px;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+html[lang="hu"] .en, html[lang="en"] .hu { display: none !important; }
+
+a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+h1, h2, h3 { font-family: var(--font-display); color: var(--ink); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: -0.025em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.015em; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0; }
+
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.measure { max-width: 66ch; }
+
+/* Fejléc: mint a Miro felső eszköztára */
+header.top { position: sticky; top: 0; z-index: 10; padding: 10px 0; }
+.top .bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  padding: 8px 10px 8px 16px; box-shadow: 0 2px 10px rgba(7, 30, 37, 0.06);
+}
+.brand { font-family: var(--font-display); font-weight: 700; color: var(--ink); text-decoration: none; }
+nav.links { display: flex; gap: 6px; }
+nav.links a { color: var(--ink); text-decoration: none; font-weight: 700; font-size: 0.92rem; padding: 6px 10px; border-radius: 8px; }
+nav.links a:hover { background: var(--sticky); }
+.lang { display: inline-flex; background: var(--canvas); border-radius: 8px; padding: 3px; }
+.lang button { font: 700 0.85rem var(--font-body); border: 0; background: transparent; color: var(--ink); padding: 4px 12px; border-radius: 6px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--sticky); }
+@media (max-width: 760px) { nav.links { display: none; } }
+
+section { padding: 56px 0; }
+.eyebrow { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; padding: 3px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+
+/* Frame: Miro-keret felirattal */
+.frame { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 32px; box-shadow: 0 1px 2px rgba(7, 30, 37, 0.05); }
+.frame-label { position: absolute; top: -24px; left: 0; font-family: var(--font-display); font-size: 0.8rem; font-weight: 500; color: var(--ink); }
+@media (max-width: 640px) { .frame { padding: 22px; } }
+
+/* Post-it */
+.sticky {
+  background: var(--sticky); color: var(--ink); padding: 18px 18px 22px; border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(7, 30, 37, 0.08), 0 8px 14px -6px rgba(7, 30, 37, 0.22);
+}
+.tilt-l { transform: rotate(-1.2deg); }
+.tilt-r { transform: rotate(0.9deg); }
+
+/* Vonalas lap: harmadlagos tartalom */
+.lined {
+  background-color: var(--surface);
+  background-image: linear-gradient(to bottom, transparent calc(var(--rule) - 1px), rgba(29, 127, 85, 0.18) calc(var(--rule) - 1px));
+  background-size: 100% var(--rule);
+  background-position: 0 6px;
+  line-height: var(--rule);
+  border: 1px solid var(--line); border-radius: 4px; padding: 6px 22px 22px;
+  border-left: 3px solid var(--marker);
+}
+.lined h3 { line-height: var(--rule); }
+
+/* Hero */
+.hero { padding: 64px 0 48px; }
+.hero-grid { display: grid; grid-template-columns: 1fr 260px; gap: 40px; align-items: start; }
+@media (max-width: 760px) { .hero-grid { grid-template-columns: 1fr; } }
+.hero .role { font-family: var(--font-display); font-size: clamp(1.2rem, 2.4vw, 1.5rem); margin-top: 14px; max-width: 30ch; font-weight: 500; letter-spacing: -0.01em; }
+.hero .role strong { font-weight: 700; box-shadow: inset 0 -0.45em 0 var(--sticky); }
+.hero p.intro { margin-top: 22px; }
+.hero .sticky { margin-top: 12px; font-weight: 700; font-size: 1.05rem; }
+.hero .sticky small { display: block; font-weight: 400; font-size: 0.92rem; margin-top: 8px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; padding: 10px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; border: 0; color: var(--ink); background: var(--surface); box-shadow: 0 1px 3px rgba(7, 30, 37, 0.12); }
+.btn.primary { background: var(--sticky); }
+.btn:hover { background: #bfe2f1; }
+
+/* Eredmények */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px; margin-top: 30px; }
+.stat .num { font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; letter-spacing: -0.02em; }
+.stat p { font-size: 0.95rem; margin-top: 10px; }
+
+/* Esettanulmányok */
+.case { margin-top: 56px; }
+.case header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.case .meta { font-size: 0.95rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.tag { font-size: 0.8rem; font-weight: 700; color: var(--ink); background: var(--lemon); border: 0; padding: 2px 10px; border-radius: 999px; }
+.summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin: 26px 0 0; }
+.summary dt { font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.summary dd { margin: 0; font-size: 0.98rem; }
+@media (max-width: 640px) { .summary { grid-template-columns: 1fr; } }
+.case h3 { margin-top: 30px; }
+.case ul { margin: 10px 0 0; padding-left: 1.2em; }
+.case li { margin-top: 6px; }
+.case li::marker { color: var(--accent); }
+.note { margin-top: 22px; font-size: 0.95rem; }
+.figure { margin-top: 24px; overflow-x: auto; border: 1px dashed var(--line); border-radius: 6px; padding: 12px; background: var(--canvas); }
+.figure svg { display: block; min-width: 560px; width: 100%; height: auto; }
+.figure svg text { font-family: var(--font-body); }
+
+/* Folyamat: post-itek nyilakkal */
+.steps { list-style: none; padding: 0; margin: 34px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 36px; counter-reset: s; }
+.steps li { counter-increment: s; position: relative; min-height: 150px; }
+.steps li:nth-child(odd) { transform: rotate(-1.3deg); }
+.steps li:nth-child(even) { transform: rotate(1deg); }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--font-display); font-weight: 700; display: block; font-size: 0.85rem; }
+.steps li:not(:last-child)::after {
+  content: ""; position: absolute; width: 30px; height: 22px; right: -34px; top: 42%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 22'%3E%3Cpath d='M2 14 C9 4 18 4 26 11' fill='none' stroke='%231d7f55' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M20 8 L27 11.5 L21 16' fill='none' stroke='%231d7f55' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.steps strong { display: block; font-family: var(--font-display); margin-top: 6px; }
+.steps span { display: block; font-size: 0.93rem; margin-top: 4px; }
+@media (max-width: 900px) {
+  .steps { grid-template-columns: 1fr; max-width: 420px; gap: 40px; }
+  .steps li { min-height: 0; }
+  .steps li:not(:last-child)::after { right: auto; left: 50%; top: auto; bottom: -34px; transform: translateX(-50%) rotate(90deg); }
+}
+.ai-note { margin-top: 40px; }
+
+/* Tapasztalat */
+.xp { list-style: none; padding: 0; margin: 0; }
+.xp li { display: grid; grid-template-columns: minmax(180px, 260px) 1fr; gap: 0 24px; }
+.xp .org { font-family: var(--font-display); font-weight: 700; }
+@media (max-width: 640px) { .xp li { grid-template-columns: 1fr; margin-bottom: var(--rule); } }
+
+/* Kompetenciák */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; margin-top: 26px; }
+.cols ul { margin: 0; padding-left: 1.1em; }
+.cols li::marker { color: var(--accent); }
+
+/* Kapcsolat */
+.contact { padding: 36px; transform: rotate(-0.5deg); }
+.contact p { margin-top: 12px; max-width: 56ch; }
+footer { padding: 20px 0 40px; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap"><div class="bar">
+    <a class="brand" href="#top">Gergócs Tamás</a>
+    <nav class="links" aria-label="Fő navigáció">
+      <a href="#munkak"><span class="hu">Munkák</span><span class="en">Work</span></a>
+      <a href="#modszer"><span class="hu">Módszer</span><span class="en">Approach</span></a>
+      <a href="#tapasztalat"><span class="hu">Tapasztalat</span><span class="en">Experience</span></a>
+      <a href="#kapcsolat"><span class="hu">Kapcsolat</span><span class="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Nyelv / Language">
+      <button type="button" id="btn-hu" data-set="hu" aria-pressed="true">HU</button>
+      <button type="button" id="btn-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div></div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+   <div>
+    <h1>Gergócs Tamás</h1>
+    <p class="role hu"><strong>UX és service designer</strong> komplex, szabályozott és több szereplős szolgáltatásokra</p>
+    <p class="role en"><strong>UX &amp; service designer</strong> for complex, regulated, multi-actor services</p>
+    <p class="intro measure hu">Több mint 20 éve tervezek digitális termékeket és szolgáltatásokat. Azt keresem, ki mit csinál, hol vész el az információ, és a szolgáltatási lánc melyik pontján van a fő probléma. Biztosítási, vállalati tanulási és e-kereskedelmi rendszereken dolgoztam, gyakran szigorú szabályozás (GDPR) és sok szereplő mellett.</p>
+    <p class="intro measure en">I have been designing digital products and services for more than 20 years. I look for who does what, where information gets lost, and where in the service chain the main problem sits. I have worked on insurance, enterprise learning and e-commerce systems, often under strict regulation (GDPR) and with many actors involved.</p>
+    <div class="cta">
+      <a class="btn primary" href="#munkak"><span class="hu">Esettanulmányok</span><span class="en">Case studies</span></a>
+      <a class="btn" href="https://www.linkedin.com/in/tamas-gergocs/">LinkedIn</a>
+      <a class="btn" href="https://www.behance.net/gergocs_tamas">Behance</a>
+    </div>
+   </div>
+    <aside class="sticky tilt-r">
+      <span class="hu">Nyitott vagyok új lehetőségekre</span><span class="en">Open to new opportunities</span>
+      <small class="hu">UX és service design · bank, biztosító, telekom, közmű, közszféra</small>
+      <small class="en">UX &amp; service design · banking, insurance, telecom, utilities, public sector</small>
+    </aside>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section aria-labelledby="eredmenyek">
+  <div class="wrap">
+    <p class="eyebrow"><span class="hu">Kiemelt eredmények</span><span class="en">Selected results</span></p>
+    <h2 id="eredmenyek"><span class="hu">Mérhető hatás, pontosan körülhatárolva</span><span class="en">Measurable impact, clearly scoped</span></h2>
+    <div class="stats">
+      <div class="stat sticky tilt-l">
+        <div class="num">−60%</div>
+        <p class="hu">ügyfélszolgálati hívás egy visszatérő ügytípusban (10 → 4) · Trueview</p>
+        <p class="en">customer service calls in a recurring case type (10 → 4) · Trueview</p>
+      </div>
+      <div class="stat sticky tilt-r">
+        <div class="num">−70%</div>
+        <p class="hu">adatkimaradás-bejelentés, miután az értékesítő partnerek a kedvezmény feltételeit is kommunikálták · Trueview</p>
+        <p class="en">data-outage reports after sales partners started communicating the discount conditions · Trueview</p>
+      </div>
+      <div class="stat sticky tilt-l">
+        <div class="num">32 → 880</div>
+        <p class="hu">napi felhasználó a mobilalkalmazáson; két kiemelt ügyfél az app miatt hosszabbított · Bridge</p>
+        <p class="en">daily users on the mobile app; two key clients renewed because of it · Bridge</p>
+      </div>
+      <div class="stat sticky tilt-r">
+        <div class="num">150 000</div>
+        <p class="hu">tréning egyetlen ügyfélnél, ehhez készült az új jogosultsági és szervezeti modell · Bridge</p>
+        <p class="en">trainings at a single client, the scale the new permission and organisation model was built for · Bridge</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="munkak" aria-labelledby="munkak-cim">
+  <div class="wrap">
+    <p class="eyebrow"><span class="hu">Esettanulmányok</span><span class="en">Case studies</span></p>
+    <h2 id="munkak-cim"><span class="hu">Három szolgáltatás, három különböző lánc</span><span class="en">Three services, three different chains</span></h2>
+
+    <!-- TRUEVIEW -->
+    <article class="case frame" id="trueview">
+      <span class="frame-label">Trueview</span>
+      <header>
+        <h3 style="margin:0;font-size:1.5rem">Trueview</h3>
+        <span class="meta hu">Truemotion (ma Cambridge Mobile Telematics) · insurtech</span>
+        <span class="meta en">Truemotion (now Cambridge Mobile Telematics) · insurtech</span>
+      </header>
+      <div class="tags">
+        <span class="tag">Service blueprint</span>
+        <span class="tag hu">Felhasználói interjúk</span><span class="tag en">User interviews</span>
+        <span class="tag hu">Használhatósági teszt</span><span class="tag en">Usability testing</span>
+        <span class="tag">B2B platform</span>
+      </div>
+      <dl class="summary">
+        <div class="sticky tilt-l"><dt><span class="hu">Kihívás</span><span class="en">Challenge</span></dt>
+          <dd class="hu">Egy white label mobilapp gyűjtötte a biztosítottak vezetési adatait, a biztosítók ügyfélszolgálata ez alapján adott kedvezményt. Az adatokban hiányok jelentek meg, az ügyfelek elestek a kedvezménytől, és sok panaszhívás futott be.</dd>
+          <dd class="en">A white-label mobile app collected policyholders' driving data, and insurers' customer service granted discounts based on it. Gaps appeared in the data, customers lost their discounts and complaint calls piled up.</dd></div>
+        <div class="sticky tilt-r"><dt><span class="hu">Szerepem</span><span class="en">My role</span></dt>
+          <dd class="hu">A biztosítóknak szánt elemzőplatform (Business Analyst platform) teljes koncepcióját és architektúráját én alakítottam ki. A pilot verzión szorosan együtt dolgoztam a Head of Producttal.</dd>
+          <dd class="en">I shaped the full concept and architecture of the Business Analyst platform built for insurers. On the pilot version I worked closely with the Head of Product.</dd></div>
+        <div class="sticky tilt-r"><dt><span class="hu">Mit csináltam</span><span class="en">What I did</span></dt>
+          <dd class="hu">Szenzoradat-nézet, interjúk és teszt 8 ügyfélszolgálati munkatárssal, telefontípusonkénti hibaelhárítási útmutató, majd a teljes szolgáltatás service blueprintje.</dd>
+          <dd class="en">A sensor data view, interviews and testing with 8 customer service reps, a troubleshooting guide per phone type, then a service blueprint of the whole service.</dd></div>
+        <div class="sticky tilt-l"><dt><span class="hu">Eredmény</span><span class="en">Result</span></dt>
+          <dd class="hu">−60% hívás az adott ügytípusban (10 → 4), −70% adatkimaradás-bejelentés.</dd>
+          <dd class="en">−60% calls in that case type (10 → 4), −70% data-outage reports.</dd></div>
+      </dl>
+
+      <h3><span class="hu">A felismerések sorrendje</span><span class="en">How the insight unfolded</span></h3>
+      <ul class="hu">
+        <li><strong>Tünet a termékben.</strong> A szenzoradat-idővonalon hiányok látszottak. Megterveztem a szenzoradat-diagramot: mely szenzor nincs engedélyezve, telepítve van-e az app, mikor voltak kimaradások. A pontos helymeghatározás kiemelten fontos szenzor volt.</li>
+        <li><strong>Első válasz: onboarding.</strong> Az onboarding után is maradt adathiány, ezért tovább kellett menni.</li>
+        <li><strong>Interjúk az ügyfélszolgálattal.</strong> A tapasztalataik alapján telefontípusonkénti hibaelhárítási útmutató készült.</li>
+        <li><strong>Service blueprint.</strong> Kiderült a fő probléma: az értékesítő partnerek szerződéskötéskor csak a kedvezmény mértékét kommunikálták, a feltételeit nem.</li>
+        <li><strong>Ügyféloldali pont.</strong> Az erős akkumulátor-fogyasztás miatt egyes ügyfelek visszavonták az engedélyeket. Ezt teszteltük, a mérséklést a fejlesztők felé vittem.</li>
+      </ul>
+      <ul class="en">
+        <li><strong>Symptom in the product.</strong> The sensor data timeline showed gaps. I designed a sensor data diagram: which sensor is disabled, whether the app is installed, when outages happened. Precise location was a key sensor.</li>
+        <li><strong>First response: onboarding.</strong> Data gaps remained after onboarding, so we had to dig further.</li>
+        <li><strong>Interviews with customer service.</strong> Their experience fed a troubleshooting guide per phone type.</li>
+        <li><strong>Service blueprint.</strong> It revealed the main problem: at contract signing, sales partners communicated only the size of the discount, not its conditions.</li>
+        <li><strong>A customer-side factor.</strong> Heavy battery drain made some customers revoke permissions. We tested it and I took the mitigation to the developers.</li>
+      </ul>
+
+      <div class="figure" role="img" aria-label="Szolgáltatási lánc: ügyfél, app, értékesítő partner, ügyfélszolgálat, biztosító / Service chain: customer, app, sales partner, customer service, insurer">
+        <svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg">
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
+          <g fill="var(--sticky)" stroke="none">
+            <rect x="4" y="40" width="128" height="56" rx="10"/>
+            <rect x="160" y="40" width="128" height="56" rx="10"/>
+            <rect x="316" y="40" width="128" height="56" rx="10"/>
+            <rect x="472" y="40" width="128" height="56" rx="10"/>
+            <rect x="628" y="40" width="128" height="56" rx="10"/>
+          </g>
+          <ellipse cx="380" cy="68" rx="86" ry="42" fill="none" stroke="var(--marker)" stroke-width="3" transform="rotate(-4 380 68)" stroke-linecap="round" stroke-dasharray="520 40"/>
+          <g stroke="var(--ink)" stroke-width="1.5" marker-end="url(#ar)">
+            <line x1="134" y1="68" x2="156" y2="68"/><line x1="290" y1="68" x2="312" y2="68"/>
+            <line x1="446" y1="68" x2="468" y2="68"/><line x1="602" y1="68" x2="624" y2="68"/>
+          </g>
+          <g font-size="14" font-weight="600" fill="var(--ink)" text-anchor="middle">
+            <text x="68" y="73"><tspan class="hu">Ügyfél</tspan><tspan class="en">Customer</tspan></text>
+            <text x="224" y="73">App</text>
+            <text x="380" y="66"><tspan class="hu">Értékesítő</tspan><tspan class="en">Sales</tspan></text>
+            <text x="380" y="84"><tspan class="hu">partner</tspan><tspan class="en">partner</tspan></text>
+            <text x="536" y="66"><tspan class="hu">Ügyfél-</tspan><tspan class="en">Customer</tspan></text>
+            <text x="536" y="84"><tspan class="hu">szolgálat</tspan><tspan class="en">service</tspan></text>
+            <text x="692" y="73"><tspan class="hu">Biztosító</tspan><tspan class="en">Insurer</tspan></text>
+          </g>
+          <g font-size="13" fill="var(--ink)" text-anchor="middle" font-weight="600">
+            <text x="380" y="122"><tspan class="hu">Fő probléma: a feltételek</tspan><tspan class="en">Main problem: conditions</tspan></text>
+            <text x="380" y="140"><tspan class="hu">nem jutottak el az ügyfélhez</tspan><tspan class="en">never reached the customer</tspan></text>
+          </g>
+          <g font-size="12" fill="var(--ink)" text-anchor="middle">
+            <text x="224" y="26"><tspan class="hu">tünet: adathiány</tspan><tspan class="en">symptom: data gaps</tspan></text>
+            <text x="536" y="26"><tspan class="hu">tünet: panaszhívások</tspan><tspan class="en">symptom: complaint calls</tspan></text>
+          </g>
+        </svg>
+      </div>
+
+      <h3><span class="hu">Claims kiegészítő szolgáltatás</span><span class="en">Claims add-on service</span></h3>
+      <p class="measure hu" style="margin-top:8px">A vezetési adatokból a rendszer balesetet ismert fel. Megterveztem a felületet, ahol az ügyfélszolgálat megvizsgálhatta a környezeti tényezőket: utcakép és kereszteződés, időjárás, forgalom, úttípus.</p>
+      <p class="measure en" style="margin-top:8px">The system detected crashes from driving data. I designed the interface where customer service could examine the context: street view and intersection, weather, traffic, road type.</p>
+
+      <p class="note lined hu">A biztosítói ügyfelek között volt az Intact, a Farmers Insurance, a Progressive és a Liberty Mutual (nyilvános partnerségek). A maradék adatkimaradás nagyobb részét a hálózati lefedettség okozta.</p>
+      <p class="note lined en">Insurer clients included Intact, Farmers Insurance, Progressive and Liberty Mutual (public partnerships). Most of the remaining outages came from network coverage.</p>
+    </article>
+
+    <!-- BRIDGE -->
+    <article class="case frame" id="bridge">
+      <span class="frame-label">Bridge</span>
+      <header>
+        <h3 style="margin:0;font-size:1.5rem">Bridge</h3>
+        <span class="meta hu">Learning Technologies Group · vállalati tanulási platform (getbridge.com)</span>
+        <span class="meta en">Learning Technologies Group · enterprise learning platform (getbridge.com)</span>
+      </header>
+      <div class="tags">
+        <span class="tag hu">Jogosultsági modell</span><span class="tag en">Permission model</span>
+        <span class="tag">GDPR</span>
+        <span class="tag">Design system iOS + Android</span>
+        <span class="tag hu">Workshop-facilitálás</span><span class="tag en">Workshop facilitation</span>
+      </div>
+      <dl class="summary">
+        <div class="sticky tilt-l"><dt><span class="hu">Kihívás</span><span class="en">Challenge</span></dt>
+          <dd class="hu">A platform három szerepkört ismert (szerző, menedzser, felhasználó), nem volt szervezeti hierarchia és mappa-rendszer, miközben egy ügyfélnél 150 000 tréning futott.</dd>
+          <dd class="en">The platform knew three roles (author, manager, user), with no organisational hierarchy or folder system, while one client ran 150,000 trainings.</dd></div>
+        <div class="sticky tilt-r"><dt><span class="hu">Szerepem</span><span class="en">My role</span></dt>
+          <dd class="hu">A modellt a vezető mérnökkel és egy product managerrel közösen alkottam, a workshopokat én vezettem és facilitáltam. A mobilalkalmazás tervezéséért feleltem.</dd>
+          <dd class="en">I co-created the model with the lead engineer and a product manager, and led and facilitated the workshops. I was responsible for designing the mobile app.</dd></div>
+        <div class="sticky tilt-r"><dt><span class="hu">Mit csináltam</span><span class="en">What I did</span></dt>
+          <dd class="hu">Moduláris jogosultsági mátrix, moduláris szervezeti hierarchia, prototípusteszt 3 ügyféllel. A mobilon külön iOS és Android design system.</dd>
+          <dd class="en">A modular permission matrix, a modular organisation hierarchy, prototype testing with 3 clients. On mobile, separate iOS and Android design systems.</dd></div>
+        <div class="sticky tilt-l"><dt><span class="hu">Eredmény</span><span class="en">Result</span></dt>
+          <dd class="hu">Napi 32 → 880 felhasználó a mobilappon; két kiemelt ügyfél az app miatt hosszabbított szerződést.</dd>
+          <dd class="en">32 → 880 daily users on the mobile app; two key clients renewed their contracts because of it.</dd></div>
+      </dl>
+
+      <h3><span class="hu">Jogosultsági és szervezeti modell</span><span class="en">Permission and organisation model</span></h3>
+      <ul class="hu">
+        <li>Moduláris jogosultsági mátrix a szerepkörökhöz.</li>
+        <li>Moduláris szervezeti hierarchia (osztály, régió, kontinens), amely a mappastruktúra alapja lett.</li>
+        <li>Régióközi hozzáférés csak országon belül, a GDPR szerint.</li>
+        <li>Munkaterület (workspace): egy szervezeti egység egymásba ágyazható konténere, béta próbaüzemben.</li>
+        <li>A „több sapka” eset (pl. asszisztens, aki több szerepben dolgozik) a béta-visszajelzésekből jött, és beépült a modellbe.</li>
+      </ul>
+      <ul class="en">
+        <li>A modular permission matrix for roles.</li>
+        <li>A modular organisation hierarchy (department, region, continent) that became the basis of the folder structure.</li>
+        <li>Cross-region access only within a country, in line with GDPR.</li>
+        <li>Workspace: a nestable container for one organisational unit, piloted in beta.</li>
+        <li>The "many hats" case (e.g. an assistant working in several roles) came from beta feedback and was built into the model.</li>
+      </ul>
+
+      <h3><span class="hu">Mobilalkalmazás</span><span class="en">Mobile app</span></h3>
+      <ul class="hu">
+        <li>Külön design system iOS-re (Human Interface Guidelines) és Androidra (Material Design).</li>
+        <li>Folyamatos kiadási (continuous delivery) rend mindkét platformra; a backlogot én kezeltem és prioritizáltam, a roadmapet a product managerrel közösen alakítottuk ki.</li>
+        <li>A Journeys funkció, és az első szerepkör-alapú nézetek, például a managereknek összesített teljesítési arány.</li>
+        <li>Funkcióbemutató onboarding az új funkciók rövid kommunikálására; Google Analytics-tagek meghatározása a hand-off részeként.</li>
+        <li>2023-ban a Raccoon Gang magazin a legjobb mobil tanulási alkalmazások közé sorolta.</li>
+      </ul>
+      <ul class="en">
+        <li>Separate design systems for iOS (Human Interface Guidelines) and Android (Material Design).</li>
+        <li>A continuous delivery process for both platforms; I managed and prioritised the backlog and shaped the roadmap together with the product manager.</li>
+        <li>The Journeys feature and the first role-based views, such as aggregated completion rates for managers.</li>
+        <li>Feature onboarding to announce new features briefly; defining Google Analytics tags as part of hand-off.</li>
+        <li>In 2023 Raccoon Gang magazine listed it among the best mobile learning apps.</li>
+      </ul>
+    </article>
+
+    <!-- VATERA COLLECT -->
+    <article class="case frame" id="vatera-collect">
+      <span class="frame-label">Vatera Collect</span>
+      <header>
+        <h3 style="margin:0;font-size:1.5rem">Vatera Collect</h3>
+        <span class="meta hu">Jófogás & Vatera · kísérleti aukciós platform gyűjtőknek és kereskedőknek</span>
+        <span class="meta en">Jófogás & Vatera · experimental auction platform for collectors and dealers</span>
+      </header>
+      <div class="tags">
+        <span class="tag hu">Munkafolyamat-tervezés</span><span class="tag en">Workflow design</span>
+        <span class="tag hu">Információs architektúra</span><span class="tag en">Information architecture</span>
+        <span class="tag">MCP-ready design system</span>
+      </div>
+      <dl class="summary">
+        <div class="sticky tilt-l"><dt><span class="hu">Kihívás</span><span class="en">Challenge</span></dt>
+          <dd class="hu">Gyűjtői tételek tömeges feltöltése és szakértői bírálata két szerepkörrel: a hirdetést feladó és a szakértő.</dd>
+          <dd class="en">Bulk listing upload and expert review of collectible items, with two roles: the seller and the expert.</dd></div>
+        <div class="sticky tilt-r"><dt><span class="hu">Szerepem</span><span class="en">My role</span></dt>
+          <dd class="hu">Megterveztem a tömeges feltöltés és a szakértői bírálat munkafolyamatát, valamint a személyes menü új információs architektúráját.</dd>
+          <dd class="en">I designed the bulk upload and expert review workflow, and the new information architecture of the personal menu.</dd></div>
+        <div class="sticky tilt-r"><dt><span class="hu">Mit csináltam</span><span class="en">What I did</span></dt>
+          <dd class="hu">Strukturált bírálati döntések, egyeztetés a PM-mel és a fejlesztőkkel, az ügyfélszolgálat bevonása, validálás 3 ügyfélszolgálati munkatárssal.</dd>
+          <dd class="en">Structured review decisions, alignment with the PM and developers, involving customer service, validation with 3 customer service reps.</dd></div>
+        <div class="sticky tilt-l"><dt><span class="hu">Eredmény</span><span class="en">Result</span></dt>
+          <dd class="hu">Kísérleti fázis, mért eredmény még nincs. Tervezett mutatók: átfutási idő, elutasítási arány, újraküldések.</dd>
+          <dd class="en">Experimental phase, no measured results yet. Planned metrics: lead time, rejection rate, resubmissions.</dd></div>
+      </dl>
+
+      <div class="figure" role="img" aria-label="Bírálati folyamat: feladó, tömeges feltöltés, szakértő, döntés / Review flow: seller, bulk upload, expert, decision">
+        <svg viewBox="0 0 760 190" xmlns="http://www.w3.org/2000/svg">
+          <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
+          <g fill="var(--sticky)" stroke="none">
+            <rect x="4" y="66" width="130" height="56" rx="10"/>
+            <rect x="170" y="66" width="130" height="56" rx="10"/>
+            <rect x="336" y="66" width="130" height="56" rx="10"/>
+            <rect x="530" y="6" width="226" height="44" rx="10" stroke="var(--accent)" stroke-width="2.5"/>
+            <rect x="530" y="72" width="226" height="44" rx="10"/>
+            <rect x="530" y="138" width="226" height="44" rx="10"/>
+          </g>
+          <g stroke="var(--ink)" stroke-width="1.5" fill="none" marker-end="url(#ar2)">
+            <line x1="136" y1="94" x2="166" y2="94"/><line x1="302" y1="94" x2="332" y2="94"/>
+            <path d="M468,94 C500,94 500,28 526,28"/><line x1="468" y1="94" x2="526" y2="94"/><path d="M468,94 C500,94 500,160 526,160"/>
+          </g>
+          <g font-size="14" font-weight="600" fill="var(--ink)" text-anchor="middle">
+            <text x="69" y="99"><tspan class="hu">Feladó</tspan><tspan class="en">Seller</tspan></text>
+            <text x="235" y="91"><tspan class="hu">Tömeges</tspan><tspan class="en">Bulk</tspan></text>
+            <text x="235" y="109"><tspan class="hu">feltöltés</tspan><tspan class="en">upload</tspan></text>
+            <text x="401" y="99"><tspan class="hu">Szakértő</tspan><tspan class="en">Expert</tspan></text>
+            <text x="643" y="33" fill="var(--ink)"><tspan class="hu">Elfogadás</tspan><tspan class="en">Accept</tspan></text>
+            <text x="643" y="99"><tspan class="hu">Információkérés + indoklás</tspan><tspan class="en">Request info + reason</tspan></text>
+            <text x="643" y="165"><tspan class="hu">Elutasítás + indoklás</tspan><tspan class="en">Reject + reason</tspan></text>
+          </g>
+        </svg>
+      </div>
+
+      <ul class="hu">
+        <li>A szakértő három döntést hozhat: Elfogadás, Információkérés, Elutasítás. Utóbbi kettőnél kötelező az indoklás és az ok kiválasztása egy listából, így a döntések később elemezhetők.</li>
+        <li>Az első változatban tételenként bírálnak: tudatos kompromisszum a gyors indulásért.</li>
+        <li>A PM-mel tisztáztuk a funkciókat és a teljes munkafolyamatot, a fejlesztőkkel minden nagyobb mérföldkőnél egyeztettem.</li>
+        <li>Bevontam az ügyfélszolgálatot, mert ők a napi használók, és hozzájuk futnak be a panaszok. Az új munkafolyamat a korábbi folyamat ismert problémáira ad választ.</li>
+        <li>A csomagajánlatok részleges vagy teljes visszamondására mappastruktúrát terveztem, a bírálatnál is használt tömeges műveleti modullal. Eddig ezeket az ügyfélszolgálat kézzel törölte.</li>
+        <li>A design systemet kifejezetten MCP-szerverre készen építettem fel, hogy AI-eszközök is közvetlenül használhassák.</li>
+      </ul>
+      <ul class="en">
+        <li>The expert has three decisions: Accept, Request info, Reject. The last two require a reason picked from a list, so decisions can be analysed later.</li>
+        <li>The first version reviews item by item: a deliberate trade-off for a faster launch.</li>
+        <li>I clarified features and the full workflow with the PM, and aligned with developers at every major milestone.</li>
+        <li>I involved customer service, as they are the daily users and the first to receive complaints. The new workflow answers known problems of the previous process.</li>
+        <li>For partial or full cancellation of bundle offers I designed a folder structure, reusing the bulk action module from expert review. Until then customer service deleted these by hand.</li>
+        <li>I built the design system to be MCP-server ready, so AI tools can use it directly.</li>
+      </ul>
+    </article>
+
+    <p class="note lined hu">Több munkám vizuális anyaga a <a href="https://www.behance.net/gergocs_tamas">Behance-profilomon</a> érhető el.</p>
+    <p class="note lined en">Visuals of more of my work are on my <a href="https://www.behance.net/gergocs_tamas">Behance profile</a>.</p>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="modszer" aria-labelledby="modszer-cim">
+  <div class="wrap">
+    <p class="eyebrow"><span class="hu">Hogyan dolgozom</span><span class="en">How I work</span></p>
+    <h2 id="modszer-cim"><span class="hu">A tünettől a fő problémáig, majd a mérésig</span><span class="en">From symptom to main problem, then to measurement</span></h2>
+    <ol class="steps">
+      <li class="sticky"><strong class="hu">Diagnózis</strong><strong class="en">Diagnosis</strong>
+        <span class="hu">Hol jelenik meg a probléma, és kit érint?</span><span class="en">Where does the problem show up, and who does it affect?</span></li>
+      <li class="sticky"><strong class="hu">Kutatás</strong><strong class="en">Research</strong>
+        <span class="hu">Interjúk a napi használókkal, használhatósági teszt, Hotjar-funnelek.</span><span class="en">Interviews with daily users, usability testing, Hotjar funnels.</span></li>
+      <li class="sticky"><strong class="hu">Folyamatfeltérképezés</strong><strong class="en">As-is / to-be analysis</strong>
+        <span class="hu">Service blueprint és ügyfélút: ki mit csinál, hol vész el az információ.</span><span class="en">Service blueprint and customer journey: who does what, where information gets lost.</span></li>
+      <li class="sticky"><strong>Co-design</strong>
+        <span class="hu">Workshopok mérnökökkel, PM-mel, ügyfélszolgálattal.</span><span class="en">Workshops with engineers, PMs and customer service.</span></li>
+      <li class="sticky"><strong class="hu">Mérés</strong><strong class="en">Measurement</strong>
+        <span class="hu">Előre megnevezett mutatók és analitika a bevezetés után.</span><span class="en">Metrics named upfront and analytics after launch.</span></li>
+    </ol>
+    <p class="measure hu" style="margin-top:28px;color:var(--ink)">Az elmúlt két évben a munkám része lett az AI (főként Claude): koncepcióalkotás, kutatási adatok feldolgozása, piacelemzés, szövegírás, wireframe és prototípus, MCP-szerverre kész design system. A döntés és az ellenőrzés nálam marad.</p>
+    <p class="measure en" style="margin-top:28px;color:var(--ink)">Over the past two years AI (mainly Claude) has become part of my work: concept development, research synthesis, market analysis, copywriting, wireframes and prototypes, an MCP-server-ready design system. Decisions and verification stay with me.</p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="tapasztalat" aria-labelledby="tapasztalat-cim">
+  <div class="wrap">
+    <p class="eyebrow"><span class="hu">Tapasztalat</span><span class="en">Experience</span></p>
+    <h2 id="tapasztalat-cim"><span class="hu">Ahol eddig dolgoztam</span><span class="en">Where I have worked</span></h2>
+    <div class="lined" style="margin-top:26px"><ul class="xp">
+      <li><span class="org">Jófogás & Vatera</span>
+        <span class="hu">Product Designer a termékcsapatban · aukciós és apróhirdetési platformok</span>
+        <span class="en">Product Designer in the product team · auction and classifieds platforms</span></li>
+      <li><span class="org">Diligent</span>
+        <span class="hu">Staff Product Designer · 2 fős design csapat vezetése, design protokollok, osztályközi együttműködés</span>
+        <span class="en">Staff Product Designer · led a 2-person design team, design protocols, cross-department collaboration</span></li>
+      <li><span class="org">Bridge (Learning Technologies Group)</span>
+        <span class="hu">Product Designer · mobilalkalmazás, design system, jogosultsági modell</span>
+        <span class="en">Product Designer · mobile app, design system, permission model</span></li>
+      <li><span class="org">Truemotion</span>
+        <span class="hu">UX Designer · Trueview elemzőplatform biztosítóknak</span>
+        <span class="en">UX Designer · Trueview analytics platform for insurers</span></li>
+      <li><span class="org">Cheppers</span>
+        <span class="hu">3 fős design csapat vezetése</span>
+        <span class="en">Led a 3-person design team</span></li>
+      <li><span class="org">Duna TV / MTVA</span>
+        <span class="hu">Senior UX/UI Designer · webes felületek · 2006–2015</span>
+        <span class="en">Senior UX/UI Designer · web interfaces · 2006–2015</span></li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section aria-labelledby="kompetencia-cim">
+  <div class="wrap">
+    <p class="eyebrow"><span class="hu">Kompetenciák</span><span class="en">Skills</span></p>
+    <h2 id="kompetencia-cim"><span class="hu">Módszerek, eszközök, képzések</span><span class="en">Methods, tools, education</span></h2>
+    <div class="cols">
+      <div class="lined">
+        <h3><span class="hu">Service design és UX</span><span class="en">Service design &amp; UX</span></h3>
+        <ul class="hu">
+          <li>Service blueprint, ügyfélút-térkép</li>
+          <li>Folyamatfeltérképezés, folyamat-újratervezés</li>
+          <li>Felhasználói interjú, használhatósági teszt</li>
+          <li>Információs architektúra, jogosultsági modellek</li>
+          <li>Workshop-facilitálás, co-design</li>
+          <li>Backlog, prioritizálás, roadmap</li>
+        </ul>
+        <ul class="en">
+          <li>Service blueprint, customer journey map</li>
+          <li>As-is / to-be analysis, process redesign</li>
+          <li>User interviews, usability testing</li>
+          <li>Information architecture, permission models</li>
+          <li>Workshop facilitation, co-design</li>
+          <li>Backlog, prioritisation, roadmap</li>
+        </ul>
+      </div>
+      <div class="lined">
+        <h3><span class="hu">Eszközök és szabványok</span><span class="en">Tools &amp; standards</span></h3>
+        <ul class="hu">
+          <li>Figma (prototípus, komponensek, változók, design tokenek), FigJam</li>
+          <li>Miro, Jira</li>
+          <li>Google Analytics, Hotjar</li>
+          <li>Claude (AI a kutatásban és a tervezésben)</li>
+          <li>WCAG 2.x, iOS HIG, Material Design</li>
+        </ul>
+        <ul class="en">
+          <li>Figma (prototyping, components, variables, design tokens), FigJam</li>
+          <li>Miro, Jira</li>
+          <li>Google Analytics, Hotjar</li>
+          <li>Claude (AI in research and design)</li>
+          <li>WCAG 2.x, iOS HIG, Material Design</li>
+        </ul>
+      </div>
+      <div class="lined">
+        <h3><span class="hu">Képzések</span><span class="en">Education</span></h3>
+        <ul class="hu">
+          <li>MOME ID – Digital Product Design (UX/UI), 2014</li>
+          <li>Multimédia-fejlesztő (emelt szintű szakképesítés), 2006</li>
+          <li>Accessibility tanúsítvány (Udemy)</li>
+          <li>EITCA/AI Artificial Intelligence Academy (folyamatban)</li>
+          <li>Angol: B2</li>
+        </ul>
+        <ul class="en">
+          <li>MOME ID – Digital Product Design (UX/UI), 2014</li>
+          <li>Multimedia Developer (advanced vocational qualification), 2006</li>
+          <li>Accessibility certificate (Udemy)</li>
+          <li>EITCA/AI Artificial Intelligence Academy (in progress)</li>
+          <li>English: B2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kapcsolat" aria-labelledby="kapcsolat-cim">
+  <div class="wrap">
+    <div class="contact sticky">
+      <h2 id="kapcsolat-cim"><span class="hu">Beszélgessünk</span><span class="en">Let's talk</span></h2>
+      <p class="hu">Új lehetőséget keresek UX és service design területen, elsősorban banki, biztosítási, telekommunikációs, közmű- és közigazgatási szolgáltatásokban.</p>
+      <p class="en">I am looking for a new role in UX and service design, mainly in banking, insurance, telecom, utilities and public services.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.linkedin.com/in/tamas-gergocs/">LinkedIn</a>
+        <a class="btn" href="https://www.behance.net/gergocs_tamas">Behance</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Gergócs Tamás</div>
+</footer>
+
+<script>
+(function () {
+  var titles = { hu: "Gergócs Tamás – Portfólió", en: "Tamás Gergócs – Portfolio" };
+  function setLang(l, save) {
+    document.documentElement.lang = l;
+    document.title = titles[l];
+    document.getElementById("btn-hu").setAttribute("aria-pressed", l === "hu");
+    document.getElementById("btn-en").setAttribute("aria-pressed", l === "en");
+    if (save) { try { localStorage.setItem("lang", l); } catch (e) {} }
+  }
+  var start = null;
+  if (location.hash === "#en" || location.hash === "#hu") start = location.hash.slice(1);
+  if (!start) { try { start = localStorage.getItem("lang"); } catch (e) {} }
+  if (!start) start = (navigator.language || "hu").toLowerCase().indexOf("hu") === 0 ? "hu" : "en";
+  setLang(start, false);
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.dataset.set, true); });
+  });
+})();
+</script>
+</body>
+</html>
